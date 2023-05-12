@@ -3,8 +3,8 @@ from tkinter import messagebox
 import sqlite3
 root = Tk()
 # Create PhotoImage objects for images with alternate text
-image1 = PhotoImage(file="C:/Users/Abimb/OneDrive/Desktop/Easylist-logo.png")
-image2 = PhotoImage(file="C:/Users/Abimb/OneDrive/Desktop/EasyList2.png")
+image1 = PhotoImage(file="C:/path/logo.png")
+image2 = PhotoImage(file="C:/path/EasyList2.png")
 # Create Label widgets for images with alternate text
 image1_label = Label(root, image=image1, bd=0)
 image1_label.image = image1
