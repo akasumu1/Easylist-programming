@@ -1,27 +1,39 @@
-# Easylist-pfrom tkinter import *
+from tkinter import *
 from tkinter import messagebox
 import sqlite3
-root = Tk()
-# Create PhotoImage objects for images with alternate text
-image1 = PhotoImage(file="C:/path/logo.png")
-image2 = PhotoImage(file="C:/path/EasyList2.png")
-# Create Label widgets for images with alternate text
-image1_label = Label(root, image=image1, bd=0)
-image1_label.image = image1
-image1_label.pack(pady=5)
-image2_label = Label(root, image=image2, bd=0)
-image2_label.image = image2
-image2_label.pack(pady=5)
-root.mainloop()
 
-# declare the global variables
-global list_name, priority, items_listbox, current_list_id
-
-# create the main window
+# Create the main window
 root = Tk()
 root.title("EasyList")
 
-# connect to the database
+# Create PhotoImage objects for images with alternate text
+image1 = PhotoImage(file="C:/Users/Abimb/OneDrive/Desktop/Easylist-logo.png")
+image2 = PhotoImage(file="C:/Users/Abimb/OneDrive/Desktop/EasyList2.png")
+
+# Create Label widgets for images with alternate text
+image1_label = Label(root, image=image1, bd=0)
+image1_label.image = image1
+image1_label.grid(pady=5)
+
+# function to display a new window
+def display_window(title, image):
+    # Create a new window
+    window = Toplevel(root)
+    window.title(title)
+
+    # Create and position the label with the image
+    image_label = Label(window, image=image, bd=0)
+    image_label.image = image
+    image_label.grid(pady=5)
+
+# Call the function to display two windows with different titles and images
+display_window("Window 1", image1)
+display_window("Window 2", image2)
+
+# Declare the global variables
+global list_name, priority, items_listbox, current_list_id
+
+# Connect to the database
 conn = sqlite3.connect('easylist.db')
 c = conn.cursor()
 
@@ -541,4 +553,4 @@ exit_button = Button(root, text="Exit", command=exit_program)
 exit_button.grid(row=1, column=0, padx=5, pady=5)
 
 root.mainloop()
-rogramming
+
